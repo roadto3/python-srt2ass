@@ -90,13 +90,13 @@ PlayDepth: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: SubStyle,Arial,20,&H0300FFFF,&H00FFFFFF,&H00000000,&H02000000,-1,0,0,0,100,100,0,0,3,2,0,2,10,10,10,1
+Style: SubStyle,Arial Black,20,&H00FFFF00,&H00FF0000,&H00000000,&H00000000,0,0,0,0,400,400,0,0,1,2,2,2,10,10,400,1
 
 [Events]
 Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text'''
 
     output_str = utf8bom + head_str + '\n' + subLines
-    output_str = output_str.encode(encoding)
+    output_str = output_str.encode('utf-8')
 
     with open(output_file, 'wb') as output:
         output.write(output_str)
@@ -109,3 +109,4 @@ Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
 if len(sys.argv) > 1:
     for name in sys.argv[1:]:
         srt2ass(name)
+
